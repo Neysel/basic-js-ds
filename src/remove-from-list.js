@@ -57,7 +57,7 @@ function removeKFromList(l, k) {
   }
   createNewList();
 
-  return newList;
+  return "newList";
 }
 
 module.exports = {
