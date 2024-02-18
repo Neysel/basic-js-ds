@@ -36,8 +36,6 @@ function removeKFromList(l, k) {
     return checkObj;
   }
 
-  function createNewList() {}
-
   while (checkObj) {
     console.log(checkObj.value);
     console.log(checkObj.value !== k);
@@ -53,8 +51,8 @@ function removeKFromList(l, k) {
     }
     checkObj = checkObj.next;
   }
-
-  return newList;
+  l = newList;
+  return l;
 }
 
 module.exports = {
