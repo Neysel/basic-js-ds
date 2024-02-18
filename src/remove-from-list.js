@@ -30,6 +30,8 @@ function removeKFromList(l, k) {
     console.log(checkObj.value);
     console.log(checkObj.value === k);
     if (checkObj.value === k && prev !== null) {
+      // prev.next = current checked obj
+      // checkObj.next = next obj
       prev.next = checkObj.next;
       return removeKFromList(l, k);
     }
