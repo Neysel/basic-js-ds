@@ -36,7 +36,9 @@ function removeKFromList(l, k) {
     return checkObj;
   }
 
-  function createNewList() {
+  function createNewList() {}
+
+  while (checkObj) {
     console.log(checkObj.value);
     console.log(checkObj.value !== k);
     if (checkObj.value !== k) {
@@ -51,11 +53,6 @@ function removeKFromList(l, k) {
     }
     checkObj = checkObj.next;
   }
-
-  while (checkObj.next !== null) {
-    createNewList();
-  }
-  createNewList();
 
   return newList;
 }
