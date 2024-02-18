@@ -23,35 +23,23 @@ const { ListNode } = require("../extensions/list-node.js");
  * }
  */
 function removeKFromList(l, k) {
-  let list = structuredClone(l);
-  let newList = {};
-
-  let checkObj = list;
-
-  function findLastElement(obj) {
-    let checkObj = obj;
-    while (checkObj.next !== null) {
-      checkObj = checkObj.next;
-    }
-    return checkObj;
-  }
+  let checkObj = l;
+  let prev = null;
 
   while (checkObj) {
     console.log(checkObj.value);
-    console.log(checkObj.value !== k);
-    if (checkObj.value !== k) {
-      const newElement = new ListNode(checkObj.value);
-
-      if (!newList.value) {
-        newList = newElement;
-      } else {
-        let lastElem = findLastElement(newList);
-        lastElem.next = newElement;
-      }
+    console.log(checkObj.value === k);
+    if (checkObj.value === k && prev !== null) {
+      prev.next = checkObj.next;
+      return removeKFromList(l, k);
     }
+
+    if (checkObj.value === k) {
+      return removeKFromList(checkObj.next, k);
+    }
+    prev = checkObj;
     checkObj = checkObj.next;
   }
-  l = newList;
   return l;
 }
 
