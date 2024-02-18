@@ -22,19 +22,19 @@ const { ListNode } = require("../extensions/list-node.js");
  *   }
  * }
  */
-function findLastElement(obj) {
-  let checkObj = obj;
-  while (checkObj.next !== null) {
-    checkObj = checkObj.next;
-  }
-  return checkObj;
-}
-
 function removeKFromList(l, k) {
   let list = structuredClone(l);
   let newList = {};
 
   let checkObj = list;
+
+  function findLastElement(obj) {
+    let checkObj = obj;
+    while (checkObj.next !== null) {
+      checkObj = checkObj.next;
+    }
+    return checkObj;
+  }
 
   function createNewList() {
     console.log(checkObj.value);
@@ -57,7 +57,7 @@ function removeKFromList(l, k) {
   }
   createNewList();
 
-  return "newList";
+  return newList;
 }
 
 module.exports = {
